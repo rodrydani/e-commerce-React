@@ -134,6 +134,9 @@ display: flex;
     .grid-products{
       grid-template-columns:auto auto ;
     }
+    .product-id{
+      flex-direction: column;
+    }
   } @media (max-width:750px){
     .grid-products{
       grid-template-columns:auto ;
