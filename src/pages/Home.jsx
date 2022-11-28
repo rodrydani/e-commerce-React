@@ -25,6 +25,7 @@ const Home = () => {
       }, []);
 
       console.log(categoriesList);
+      console.log(products);
     return (
         <div>
           <div className='category-list'>
@@ -59,7 +60,9 @@ const Home = () => {
                 {e.title} {" "}
                 <Card.Img style={{ width: '200px', height:"200px" }} variant="top" src={e.productImgs[0]}  />
                 </div>
-            
+               <div style={{color:"red", paddingTop:"2rem"}}>
+                  <p><b>Price:{" "}</b>${e.price}</p> 
+               </div>
           </Card.Body>
          </Card>
          </Link>

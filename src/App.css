@@ -91,8 +91,8 @@
   }
   .card-body{
     height: 400px;
-   
-   
+   text-decoration: none;
+   text-align: center;
   }
   .link-card{
     display: flex;
@@ -101,6 +101,32 @@
     justify-content: space-evenly;
     flex-direction: column;
     gap: 2rem;
+  }
+  /*-----------------Product-id---------------*/
+
+  .product-id{
+display: flex;
+  gap: 1rem; 
+  }
+  .img-productsId{
+    box-shadow: 5px 5px 10px rgb(136, 134, 134);
+    padding: 1rem;
+  }
+  .description-productsId{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: darkcyan;
+    color: white;
+    padding-top: 4rem;
+    text-align: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgb(136, 134, 134);
+   
+  }
+
+  .related-Products{
+    margin-top: 2rem;
   }
 
   /*       media Querys        */

@@ -26,16 +26,28 @@ const ProductId = () => {
     productsFound.id !== products.id
   );
     return (
-        <div>
-            <h1>{productsFound?.title}</h1>
-            <img style={{width:"100px"}} src={productsFound?.productImgs[0]} alt="" />
-            <h3>Related products:</h3>
-      {relatedProducts.map((newsItem) => (
+      <>
+        <div className='product-id'>
+          <img className='img-productsId' src={productsFound?.productImgs[0]} alt="" />
+           
+           <div className='description-productsId'>
+                <h2>{productsFound?.title}</h2> 
+                <p style={{margin:"0 3rem", fontSize:".8rem"}}>{productsFound?.description}</p>
+                <p style={{paddingTop:"4rem", paddingLeft:"1rem"}}>Status: <span>
+                {productsFound?.status}
+                  </span></p>
+           </div>
+        </div>
+        <div className='related-Products'>
+        <h3>Related products:</h3>
+        {relatedProducts.map((newsItem) => (
         <li>
           <Link to={`/productsId/${newsItem.id}`}>{newsItem.title}</Link>
         </li>
       ))}
         </div>
+   
+        </>
     );
 };
 
