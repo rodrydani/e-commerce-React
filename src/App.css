@@ -1,0 +1,115 @@
+/*--------------------Loading-spinner---------------------*/
+.spinner-overlay{
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: #FF3D00 transparent;
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
+
+  .category-list{
+    
+    align-items: center;
+    text-align: center;
+    transition: .5s;
+    background-color: rgba(95, 158, 160, 0.585);
+    height: 50px;
+  }
+  .button-list{
+    margin: .5rem;
+  }
+  .button-list:hover{
+   
+    transition: .5s;
+    box-shadow: 1px 1px 10px gray;
+  }
+ 
+
+  .mb-3{
+    border: 1px solid black;
+    margin-top: 20px;
+    transition: .5s;
+   
+  }
+  .mb-3:hover{
+    box-shadow: 1px 1px 20px gray;
+  }
+  .grid-products{
+    padding: 2rem;
+    background-color: rgba(110, 105, 105, 0.501);
+    display: grid;
+    justify-content: center;
+    grid-template-columns:auto auto auto;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+  }
+  .card-product{
+    height: 700px;
+    border-radius: 20px;
+    transition: .5s;
+  }
+  .card-product:hover{
+    box-shadow: 1px 1px 20px rgb(59, 55, 55);
+  }
+  .card-body{
+    height: 400px;
+   
+   
+  }
+  .link-card{
+    display: flex;
+    align-items: center;
+    text-align:center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /*       media Querys        */
+  @media (max-width:900px){
+    .grid-products{
+      grid-template-columns:auto auto ;
+    }
+  } @media (max-width:750px){
+    .grid-products{
+      grid-template-columns:auto ;
+    }
+  }
