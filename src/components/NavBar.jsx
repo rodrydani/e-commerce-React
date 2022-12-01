@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import CartSideBar from './cartSideBar';
+import CartSideBar from "./CartSideBar"
 
 function NavBar() {
   const [show, setShow] = useState(false);
