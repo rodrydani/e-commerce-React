@@ -21,7 +21,6 @@ const CartSideBar = ({show, handleClose }) => {
         <div>
             <Offcanvas show={show} onHide={handleClose}>
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
       </Offcanvas.Header>
        <Offcanvas.Body>
         {cart.map((cart) => (
