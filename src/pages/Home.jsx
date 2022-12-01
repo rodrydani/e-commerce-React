@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Card from 'react-bootstrap/Card';
+import { Carousel } from 'react-bootstrap';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -26,16 +27,13 @@ const Home = () => {
 
       console.log(categoriesList);
       console.log(products);
-    return (
-        <div>
-          <div className='category-list'>
-                 {categoriesList.map((category) => (
-            <button className='button-list' onClick={()=> dispatch(filterProductsThunk(category.id))} >{category.name}</button>
-        
-             ))}
-          </div>
+
       
-      <InputGroup  className="mb-3">
+    return (
+        <div className='body-container'>
+          <div className='input-category-container'>
+            <div className='input-category'>
+               <InputGroup  className="mb-3">
         <Form.Control
           placeholder="seach Product"
           aria-label="Recipient's username"
@@ -43,26 +41,54 @@ const Home = () => {
           value={inputSearch}
           onChange={(e) => setInputSearch(e.target.value)}
         />
-        <Button  variant="outline-secondary" id="button-addon2"
+        <Button className='button-input'  variant="outline-secondary" id="button-addon2"
          onClick={() => dispatch(filterQueryThunk(inputSearch))}
         >
          Seach
         </Button>
       </InputGroup>
+      </div>
+      <div className='category-list'>
+                 {categoriesList.map((category) => (
+            <button className='button-list' onClick={()=> dispatch(filterProductsThunk(category.id))} >{category.name}</button>
+        
+             ))}
+          </div>
+         
+          </div>
+          
+         
       <div className="grid-products">
         {products.map((e)=>(
           <li>
              <Link to={`/productsId/${e.id}`}>
              <Card className="card-product" style={{ width: '400px' }}>
+
+              
       <Card.Body  className='card-body'>
            
               <div className='link-card'>
                 {e.title} {" "}
-                <Card.Img style={{ width: '200px', height:"200px" }} variant="top" src={e.productImgs[0]}  />
+                <Carousel  variant="dark">
+      <Carousel.Item style={{width:"300px", height:"200px"}}>
+      <Card.Img style={{ width: '200px', height:"150px" }} variant="top" src={e.productImgs[0]}  />
+       
+      </Carousel.Item>
+      <Carousel.Item style={{width:"300px",height:"200px" }}>
+      <Card.Img style={{ width: '200px', height:"150px" }} variant="top" src={e.productImgs[1]}  />
+
+      
+      </Carousel.Item>
+      <Carousel.Item style={{width:"300px",height:"200px"}}>
+      <Card.Img style={{ width: '200px', height:"150px" }} variant="top" src={e.productImgs[2]}  />
+      </Carousel.Item>
+    </Carousel>
+                
                 </div>
                <div style={{color:"red", paddingTop:"2rem"}}>
                   <p><b>Price:{" "}</b>${e.price}</p> 
                </div>
+               <Button  style={{background:"none",border:"1px solid black"}}><i style={{color:"red", fontSize:"50px"}} class="fa-solid fa-cart-shopping"></i></Button>
           </Card.Body>
          </Card>
          </Link>

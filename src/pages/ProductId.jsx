@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link, useParams } from 'react-router-dom';
 import { getProductsThunk } from '../store/slices/products.slice';
+import { Button } from 'react-bootstrap';
+import { createPurchasesThunk } from '../store/slices/cart.slice';
+
+
 
 
 const ProductId = () => {
@@ -25,6 +29,18 @@ const ProductId = () => {
     (products) => products.category.id === productsFound.category.id &&
     productsFound.id !== products.id
   );
+
+  const [quantity, setQuantity] = useState(1);
+
+  const addToCart =()=>{
+      const products={
+        id:productsFound.id,
+        quantity:quantity,
+      };
+      dispatch(createPurchasesThunk(products))
+      console.log(products);
+    }
+
     return (
       <>
         <div className='product-id'>
@@ -36,6 +52,12 @@ const ProductId = () => {
                 <p style={{paddingTop:"4rem", paddingLeft:"1rem"}}>Status: <span>
                 {productsFound?.status}
                   </span></p>
+                  <input
+                   type="text" 
+                   value={quantity}
+                   onChange={(e)=>setQuantity(e.target.value)}
+                   />
+                  <Button onClick={addToCart}> add to cart</Button>
            </div>
         </div>
         <div className='related-Products'>
@@ -45,6 +67,7 @@ const ProductId = () => {
           <Link to={`/productsId/${newsItem.id}`}>{newsItem.title}</Link>
         </li>
       ))}
+      
         </div>
    
         </>
