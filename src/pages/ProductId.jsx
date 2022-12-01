@@ -53,7 +53,7 @@ const ProductId = () => {
                 {productsFound?.status}
                   </span></p>
                   <input
-                   type="text" 
+                   type="number" 
                    value={quantity}
                    onChange={(e)=>setQuantity(e.target.value)}
                    />
