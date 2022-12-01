@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import CartSideBar from './cartSideBar';
@@ -23,11 +22,11 @@ function NavBar() {
               <Nav.Link as={Link} to="/login">Login</Nav.Link>
               <Nav.Link as={Link} to="/purchases">Purchases</Nav.Link>
               <Nav.Link onClick={handleShow} ><i class="fa-solid fa-cart-shopping"></i></Nav.Link>
+              <CartSideBar show={show} handleClose={handleClose} />
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <CartSideBar show={show} handleClose={handleClose} />
     </>
   );
 }
