@@ -124,19 +124,20 @@
 
   .product-id{
 display: flex;
-  gap: 1rem; 
+  gap: 1rem;
+  background-color: rgba(212, 209, 209, 0.694); 
   }
   .img-productsId{
     box-shadow: 5px 5px 10px rgb(136, 134, 134);
     padding: 1rem;
-    max-height: 500px;
-
+    height: 500px;
+   width: 700px;
   }
   .description-productsId{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: darkcyan;
+    background-color: rgba(187, 46, 11, 0.589);
     color: white;
     padding-top: 4rem;
     text-align: center;
@@ -147,6 +148,12 @@ display: flex;
 
   .related-Products{
     margin-top: 2rem;
+  }
+  .link-related{
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(146, 141, 141, 0.559);
+    width: 50%;
   }
   .purchases-div{
     background-color: rgba(249, 249, 249, 0.549);
@@ -185,4 +192,9 @@ display: flex;
       gap: 1rem;
       padding-bottom: 4rem;
     }
+    .img-productsId{
+      height: 300px;
+      width: 500px;
+     }
+    
   }

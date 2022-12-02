@@ -8,7 +8,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Card from 'react-bootstrap/Card';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Pagination } from 'react-bootstrap';
+
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -28,7 +29,15 @@ const Home = () => {
       console.log(categoriesList);
       console.log(products);
 
-      
+      let active = 2;
+      let items = [];
+      for (let number = 1; number <= 5; number++) {
+        items.push(
+          <Pagination.Item key={number} active={number === active}>
+            {number}
+          </Pagination.Item>,
+        );
+        }
     return (
         <div className='body-container'>
           <div className='input-category-container'>
@@ -57,7 +66,12 @@ const Home = () => {
          
           </div>
           
-         
+          <div>
+   
+
+
+   
+  </div>
       <div className="grid-products">
         {products.map((e)=>(
           <li>
@@ -88,7 +102,7 @@ const Home = () => {
                <div style={{color:"red", paddingTop:"2rem"}}>
                   <p><b>Price:{" "}</b>${e.price}</p> 
                </div>
-               <Button  style={{background:"none",border:"1px solid black"}}><i style={{color:"red", fontSize:"50px"}} class="fa-solid fa-cart-shopping"></i></Button>
+               <Button  style={{background:"red",borderRadius:"5px"}}><i style={{color:"white", fontSize:"20px"}} class="fa-solid fa-cart-shopping"></i></Button>
           </Card.Body>
          </Card>
          </Link>

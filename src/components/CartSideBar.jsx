@@ -10,12 +10,21 @@ import { checkoutCartThunk } from '../store/slices/cart.slice';
 const CartSideBar = ({show, handleClose }) => {
 
   const dispatch= useDispatch();
-
+ 
   useEffect(() => {
     dispatch(getCartThunk());
   }, []);
 
   const cart = useSelector((state) => state.cart);
+  console.log(cart);
+  const total=
+  cart.map((total)=>{
+  return 
+  total.productsInCart.quantity *
+  Number(cart.price)
+  })
+ const totalToBuy=
+ total.reduce((a,b)=>a+b,0);
 
     return (
         <div>
@@ -35,6 +44,7 @@ const CartSideBar = ({show, handleClose }) => {
         
         ))}
       </Offcanvas.Body> 
+      <div>{totalToBuy}</div>
      <Button onClick={()=> dispatch(checkoutCartThunk())}>checkout</Button>
     </Offcanvas>
         </div>
